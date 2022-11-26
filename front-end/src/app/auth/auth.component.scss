@@ -1,0 +1,27 @@
+
+.container {
+  max-width: 600px;
+  margin-top: 6rem;
+}
+
+
+input {
+  height: 50px;
+}
+
+button {
+  margin-top: 20px;
+  background-color:  rgb(77, 3, 66);
+  color: white;
+
+}
+
+button:hover {
+  color: white;
+  background-color:  rgb(59, 5, 51);
+}
+
+
+.logo {
+  border-radius: 15px;
+}

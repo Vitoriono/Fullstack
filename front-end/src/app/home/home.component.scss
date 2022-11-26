@@ -1,0 +1,59 @@
+.nav-scroller {
+  margin-top: 60px;
+}
+
+nav {
+  display: inline;
+}
+
+.p-2 {
+  display: inline-block;
+}
+
+.figure {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+
+}
+
+.text {
+  position: absolute;
+  color: white;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+
+.photo {
+  position: absolute;
+  width: 120%;
+  margin: -30% 0 0 0  ;
+}
+
+.col {
+
+  display: inline-block;
+  max-width: 360px;
+  height: 400px;
+  margin: 10px;
+  margin-bottom: 4.5rem;
+
+}
+
+.common {
+  display: block;
+  margin-top: 1rem;
+   margin-left: 0.4rem;
+
+  padding: 0px
+}
+
+.imgs {
+  border-radius: 20px;
+}
+
+
+
+
