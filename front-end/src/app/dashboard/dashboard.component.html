@@ -5,7 +5,7 @@
 
         <h1 class="h3 mb-3 text-center fw-normal">Create post</h1>
           <label >Category, Title and Photo</label>
-          <select [(ngModel)]="category" class="form-control mb-3" name="category" id="category" placeholder="World">
+          <select [(ngModel)]="postype.category" class="form-control mb-3" name="category" id="category" placeholder="World">
             <option value="World">World</option>
             <option value="Technology">Technology</option>
             <option value="Design">Design</option>
@@ -17,10 +17,10 @@
             <option value="Style">Style</option>
             <option value="Travel">Travel</option>
           </select>
-          <input [(ngModel)]="title"  type="title" name="title" class="form-control mb-3" id="inputTitle" placeholder="Title">
-          <quill-editor [(ngModel)]="photo" name="photo" placeholder="Photo" ></quill-editor>
+          <input [(ngModel)]="postype.title"  type="title" name="title" class="form-control mb-3" id="inputTitle" placeholder="Title">
+          <quill-editor [(ngModel)]="postype.photo" name="photo" placeholder="Photo" ></quill-editor>
           <label class="mb-2" >Information:</label>
-          <quill-editor [(ngModel)]="text" name="text" placeholder="Text" ></quill-editor>
+          <quill-editor [(ngModel)]="postype.text" name="text" placeholder="Text" ></quill-editor>
         <button class="w-100 btn btn-primary mt-2" type="submit">Create</button>
 
       </form>
