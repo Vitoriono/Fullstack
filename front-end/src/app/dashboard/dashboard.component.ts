@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
       return false
     }
 
-    //  console.log(post);
+
 
     this.authServise.registerPost(post).subscribe(data => {
       if(!data.success) {

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
       () => {
         for (let i = 0; i < this.posts.length; i++) {
 
-          this.posts[i].text = this.posts[i].text.substring(0, 200)
+          this.posts[i].text = this.posts[i].text.substring(0, 250)
 
         }
       }
