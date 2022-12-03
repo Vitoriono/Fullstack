@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
   }
 
   createPost() {
+
+
     const post = {
       category: this.postype.category,
       title: this.postype.title,

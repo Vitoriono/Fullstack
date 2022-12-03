@@ -9,21 +9,16 @@ import { AuthService } from '../auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  // posts: Array<Object> = [];
 
   posts: any = [];
-  category: any
-
+  category: any;
 
   constructor(
     private authServise: AuthService,
-
   ) { }
 
-
-
   ngOnInit(): void {
-
-
 
     this.authServise.getAllPost().subscribe( (posts ) =>
       this.posts = posts,
