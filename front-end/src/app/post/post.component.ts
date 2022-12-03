@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Route, Router  } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Observable, Subject, switchMap } from 'rxjs';
 import { AuthService } from '../auth.service';
+import { IPost } from '../interfaces';
 
 @Component({
   selector: 'app-post',
@@ -10,8 +11,8 @@ import { AuthService } from '../auth.service';
 })
 export class PostComponent implements OnInit {
 
-  post$: any;
-  login: any;
+  post$!: Observable<IPost> ;
+  login!: string;
 
   constructor(
     private authServise: AuthService,
@@ -30,7 +31,7 @@ export class PostComponent implements OnInit {
       } ))
   }
 
-  deletePost(id: any) {
+  deletePost(id: string): void {
     this.authServise.deletePost(id).subscribe(data => {
       if(!data.success) {
         alert("Post not deleted!");

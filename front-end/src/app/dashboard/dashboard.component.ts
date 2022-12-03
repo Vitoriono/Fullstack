@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Post } from '../interfaces';
+import { IPost } from '../interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   // author!: string;
   // date!: string;
 
-    postype!: Post
+    postype!: IPost
 
   constructor(
     private authServise: AuthService,

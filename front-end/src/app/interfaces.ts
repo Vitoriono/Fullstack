@@ -14,5 +14,8 @@ export interface Post {
   text: string;
   author: string;
   date: string;
-  password: string;
+}
+
+export interface IPipe {
+  category: string;
 }

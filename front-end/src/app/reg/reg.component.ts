@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { IRegister } from '../interfaces';
 
 
 @Component({
@@ -10,13 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegComponent implements OnInit {
 
-
-  name!: string;
-  login!: string;
-  email!: string;
-  password!: string;
-
-
+  iregister!: IRegister
 
   constructor(
     private authServise: AuthService,
@@ -28,14 +23,13 @@ export class RegComponent implements OnInit {
 
   signUp() {
     const user = {
-      name: this.name,
-      login: this.login,
-      email: this.email,
-      password: this.password
+      name: this.iregister.name,
+      login: this.iregister.login,
+      email: this.iregister.email,
+      password: this.iregister.password
     }
 
-
-    if(!user.name ){
+  if(!user.name ){
       alert('Enter your name');
       return false
 
