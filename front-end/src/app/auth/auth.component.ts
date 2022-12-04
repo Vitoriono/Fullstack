@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { IAuth } from '../interfaces';
 
 @Component({
   selector: 'app-auth',
@@ -10,8 +11,8 @@ import { AuthService } from '../auth.service';
 export class AuthComponent implements OnInit {
 
 
-  login!: string;
-  password!: string;
+  // login!: string;
+  // password!: string;
 
 
 
@@ -23,11 +24,12 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn() {
-    const user = {
-      login: this.login,
-      password: this.password
-    }
+  signIn(user: IAuth) {
+
+    // const user = {
+    //   login: this.login,
+    //   password: this.password
+    // }
 
      if (!user.login) {
       alert('Enter you login');

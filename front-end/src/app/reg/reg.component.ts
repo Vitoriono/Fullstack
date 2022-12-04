@@ -11,7 +11,7 @@ import { IRegister } from '../interfaces';
 })
 export class RegComponent implements OnInit {
 
-  iregister!: IRegister
+  // iregister!: IRegister
 
   constructor(
     private authServise: AuthService,
@@ -21,13 +21,14 @@ export class RegComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signUp() {
-    const user = {
-      name: this.iregister.name,
-      login: this.iregister.login,
-      email: this.iregister.email,
-      password: this.iregister.password
-    }
+  signUp(user: IRegister): boolean {
+
+    // const user = {
+    //   name: this.iregister.name,
+    //   login: this.iregister.login,
+    //   email: this.iregister.email,
+    //   password: this.iregister.password
+    // }
 
   if(!user.name ){
       alert('Enter your name');
@@ -46,7 +47,7 @@ export class RegComponent implements OnInit {
       return false
     }
 
-    console.log(user);
+    // console.log(user);
 
     this.authServise.registerUser(user).subscribe(data => {
       if(!data.success) {

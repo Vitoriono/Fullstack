@@ -7,15 +7,27 @@
 //   password: string;
 // }
 
-export interface Post {
+export interface IPost {
   category: string;
   title: string;
   photo: string;
   text: string;
   author: string;
-  date: string;
+  date: any;
 }
 
-export interface IPipe {
-  category: string;
+export interface IRegister {
+  msg: string;
+  success: string;
+  name: string;
+  login: string;
+  email: string;
+  password: string;
 }
+
+export interface IAuth {
+  login: string;
+  password: string;
+}
+
+

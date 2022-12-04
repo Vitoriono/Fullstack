@@ -1,7 +1,10 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import  {Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { IAuth, IRegister } from './interfaces';
+import { IPost } from './interfaces';
+
 
 
 
@@ -12,30 +15,29 @@ import { map } from 'rxjs';
 export class AuthService {
 
 
-  token: any;
-  user: any;
-
+   token: any;
+   user: any;
 
   constructor(
     private http: HttpClient,
     private router: Router
     ) { }
 
-    registerUser(user: any) {
+    registerUser(user: IRegister): Observable<IRegister> {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
-      return this.http.post('http://localhost:3000/account/reg', user,
-      {headers: headers}).pipe(map((res: any)  => res) )
+      return this.http.post<IRegister>('http://localhost:3000/account/reg', user,
+      {headers: headers}).pipe(map((res: IRegister)  => res) )
     }
 
-    authUser(user: any ) {
+    authUser(user: IAuth ) {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
       return this.http.post('http://localhost:3000/account/auth', user,
       {headers: headers}).pipe(map((res: any)  => res) )
     }
 
-    storeUser(token: any, user: any){
+    storeUser(token: string, user: IRegister){
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
@@ -53,7 +55,7 @@ export class AuthService {
       return !!this.token;
     }
 
-    registerPost(post: any) {
+    registerPost(post: IPost) {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
       return this.http.post('http://localhost:3000/account/dashboard', post,
@@ -64,12 +66,11 @@ export class AuthService {
       return this.http.get('http://localhost:3000').pipe(map((res: any)  => res) )
     }
 
-    getPostById(id: any) {
+    getPostById(id: string) {
       return this.http.get(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
     }
 
-    deletePost(id: any) {
+    deletePost(id: string) {
       return this.http.delete(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
     }
-
 }

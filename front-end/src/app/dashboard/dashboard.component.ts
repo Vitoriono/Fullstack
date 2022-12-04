@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   // author!: string;
   // date!: string;
 
-    postype!: IPost
+    post!: IPost
 
   constructor(
     private authServise: AuthService,
@@ -31,10 +31,10 @@ export class DashboardComponent implements OnInit {
 
 
     const post = {
-      category: this.postype.category,
-      title: this.postype.title,
-      photo: this.postype.photo,
-      text: this.postype.text,
+      category: this.post.category,
+      title: this.post.title,
+      photo: this.post.photo,
+      text: this.post.text,
       author: JSON.parse(localStorage.getItem('user') || '{}').login,
       date: new Date
     }
