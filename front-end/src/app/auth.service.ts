@@ -1,10 +1,7 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import  {Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { IAuth, IRegister } from './interfaces';
-import { IPost } from './interfaces';
-
+import { map } from 'rxjs';
 
 
 
@@ -15,29 +12,30 @@ import { IPost } from './interfaces';
 export class AuthService {
 
 
-   token: any;
-   user: any;
+  token: any;
+  user: any;
+
 
   constructor(
     private http: HttpClient,
     private router: Router
     ) { }
 
-    registerUser(user: IRegister): Observable<IRegister> {
+    registerUser(user: any) {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
-      return this.http.post<IRegister>('http://localhost:3000/account/reg', user,
-      {headers: headers}).pipe(map((res: IRegister)  => res) )
-    }
-
-    authUser(user: IAuth ) {
-      const headers = new HttpHeaders()
-      headers.append('Content-Type', 'application/json')
-      return this.http.post('http://localhost:3000/account/auth', user,
+      return this.http.post('https://pure-river-50317.herokuapp.com/account/reg', user,
       {headers: headers}).pipe(map((res: any)  => res) )
     }
 
-    storeUser(token: string, user: IRegister){
+    authUser(user: any ) {
+      const headers = new HttpHeaders()
+      headers.append('Content-Type', 'application/json')
+      return this.http.post('https://pure-river-50317.herokuapp.com/account/auth', user,
+      {headers: headers}).pipe(map((res: any)  => res) )
+    }
+
+    storeUser(token: any, user: any){
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
@@ -55,22 +53,23 @@ export class AuthService {
       return !!this.token;
     }
 
-    registerPost(post: IPost) {
+    registerPost(post: any) {
       const headers = new HttpHeaders()
       headers.append('Content-Type', 'application/json')
-      return this.http.post('http://localhost:3000/account/dashboard', post,
+      return this.http.post('https://pure-river-50317.herokuapp.com/account/dashboard', post,
       {headers: headers}).pipe(map((res: any)  => res) )
     }
 
     getAllPost() {
-      return this.http.get('http://localhost:3000').pipe(map((res: any)  => res) )
+      return this.http.get('https://pure-river-50317.herokuapp.com/').pipe(map((res: any)  => res) )
     }
 
-    getPostById(id: string) {
-      return this.http.get(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
+    getPostById(id: any) {
+      return this.http.get(`https://pure-river-50317.herokuapp.com/post/${id}`).pipe(map((res: any)  => res) )
     }
 
-    deletePost(id: string) {
-      return this.http.delete(`http://localhost:3000/post/${id}`).pipe(map((res: any)  => res) )
+    deletePost(id: any) {
+      return this.http.delete(`https://pure-river-50317.herokuapp.com/post/${id}`).pipe(map((res: any)  => res) )
     }
+
 }

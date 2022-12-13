@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { IPost } from '../interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +9,14 @@ import { IPost } from '../interfaces';
 })
 export class DashboardComponent implements OnInit {
 
-  // category!: string;
-  // title!: string;
-  // photo!: string;
-  // text!: string;
-  // author!: string;
-  // date!: string;
+  category!: string;
+  title!: string;
+  photo!: string;
+  text!: string;
+  author!: string;
+  date!: string;
 
-    post!: IPost
+
 
   constructor(
     private authServise: AuthService,
@@ -27,17 +26,21 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   createPost() {
 
-
     const post = {
-      category: this.post.category,
-      title: this.post.title,
-      photo: this.post.photo,
-      text: this.post.text,
+      category: this.category,
+      title: this.title,
+      photo: this.photo,
+      text: this.text,
       author: JSON.parse(localStorage.getItem('user') || '{}').login,
       date: new Date
     }
+
+
+
 
     if(!post.category ){
       alert('Select a category!');
@@ -56,6 +59,8 @@ export class DashboardComponent implements OnInit {
       return false
     }
 
+    //  console.log(post);
+
     this.authServise.registerPost(post).subscribe(data => {
       if(!data.success) {
         alert(data.msg);
@@ -64,6 +69,11 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/'])
       }
     })
+
     return false;
+
   }
+
+
+
 }

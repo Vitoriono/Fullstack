@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { IPost } from '../interfaces';
+
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,21 @@ import { IPost } from '../interfaces';
 })
 export class HomeComponent implements OnInit {
 
-   posts: Array<IPost> = [];
-   ipost!: IPost;
 
-constructor(
+  posts: any = [];
+  category: any
+
+
+  constructor(
     private authServise: AuthService,
+
   ) { }
 
+
+
   ngOnInit(): void {
+
+
 
     this.authServise.getAllPost().subscribe( (posts ) =>
       this.posts = posts,
@@ -26,15 +33,16 @@ constructor(
       () => {
         for (let i = 0; i < this.posts.length; i++) {
 
-        this.posts[i].text = this.posts[i].text.substring(0, 250)
+          this.posts[i].text = this.posts[i].text.substring(0, 200)
 
         }
       }
     )
   }
 
-  setCategory(category: string): void {
-    this.ipost.category = category
+  setCategory(category: any) {
+    this.category = category
+
   }
 
 }

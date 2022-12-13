@@ -1,4 +1,5 @@
 module.exports = {
-    db: 'mongodb://localhost:27017/blog',
+    db: 'mongodb+srv://Victor:kawasaki32589@cluster0.bgbyo9h.mongodb.net/?retryWrites=true&w=majority',
     secret: 'some_secret_key'
 }
+

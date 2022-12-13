@@ -5,18 +5,18 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const config = require('./config/db');
-const account = require('./routes/account');
+const routes = require('./routes/routes');
 const Post = require('./models/post');
-// const session = require('express-session');
-
 const app = express();
 
-const port = 3000;
 
+// const port =  process.env.PORT || 8080;
+const port =  3000;
 
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/routes', routes);
 
 
 
@@ -59,7 +59,20 @@ app.delete('/post/:id', (req, res) => {
     Post.deleteOne({_id: id}).then( () => res.json({success: true}))
 });
 
-app.use('/account', account);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
