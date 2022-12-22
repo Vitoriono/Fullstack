@@ -2,6 +2,10 @@
 .container {
   max-width: 600px;
   margin-top: 6rem;
+  background: white;
+  opacity: 0.8;
+  border-radius: 15px;
+  padding: 20px 20px 0.5px 20px;
 }
 
 
@@ -24,3 +28,5 @@ button:hover {
 .logo {
   border-radius: 15px;
 }
+
+

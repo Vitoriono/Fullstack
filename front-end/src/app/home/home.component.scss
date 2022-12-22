@@ -29,7 +29,8 @@ nav {
 .photo {
   position: absolute;
   width: 120%;
-  margin: -30% 0 0 0  ;
+  margin: -30% 0 0 0;
+
 }
 
 .col {
@@ -53,6 +54,29 @@ nav {
 
 .imgs {
   border-radius: 20px;
+}
+
+.closeoverlay {
+
+  opacity: .5;
+  display: block;
+  z-index: 2;
+
+  cursor: pointer;
+
+}
+
+.font {
+  color: white;
+}
+
+.contain {
+  padding: 0px;
+  box-shadow: 2px 1px 10px  rgb(17, 26, 26);
+}
+
+.myshadow {
+  box-shadow: 2px 1px 10px  rgb(17, 26, 26);
 }
 
 

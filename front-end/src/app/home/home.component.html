@@ -1,8 +1,8 @@
 
-<div class="nav-scroller py-1 mb-2">
-  <nav class="nav d-flex justify-content-between">
-    <a class="p-2 link-secondary" (click)="setCategory('World')">World</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Technology')">Technology</a>
+<div class="nav-scroller py-1 mb-2 ">
+  <nav class="nav d-flex justify-content-between" >
+    <a class="p-2 font" (click)="setCategory('World')">World</a>
+    <a class="p-2 link-white" (click)="setCategory('Technology')">Technology</a>
     <a class="p-2 link-secondary" (click)="setCategory('Design')">Design</a>
     <a class="p-2 link-secondary" (click)="setCategory('Culture')">Culture</a>
     <a class="p-2 link-secondary" (click)="setCategory('Business')">Business</a>
@@ -15,8 +15,8 @@
 </div>
 
 <div class="row d-flex">
-  <div class="figure">
-    <img class="photo" src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="">
+  <div class="figure contain">
+    <img class="photo " src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="">
     <div class="text">
       <h1 class="display-4 fst-italic">Welcome to my first blog!</h1>
       <p class="lead my-3">In this blog, you can post photos and articles from various categories: world, technology, design, culture, health, style, travel etc.</p>
@@ -24,9 +24,15 @@
     </div>
   </div>
 
-  <div class="common">
+
+  <ng-container *ngIf="loading">
+    <div class="loader">Loader... </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <div class="common">
     <div *ngFor="let post of posts | sorting: category " class="col ">
-      <div class="card shadow-sm" >
+      <div class="card myshadow" >
 
           <quill-view [content]="$any(post).photo" ></quill-view>
 
@@ -43,5 +49,9 @@
       </div>
     </div>
 </div>
+  </ng-container>
+
+
+
 </div>
 

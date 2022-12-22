@@ -18,7 +18,7 @@
             <option value="Travel">Travel</option>
           </select>
           <input [(ngModel)]="title"  type="title" name="title" class="form-control mb-3" id="inputTitle" placeholder="Title">
-          <quill-editor [(ngModel)]="photo" name="photo" placeholder="Photo" ></quill-editor>
+          <quill-editor [(ngModel)]="photo" name="photo" placeholder="Photo" class="back" ></quill-editor>
           <label class="mb-2" >Information:</label>
           <quill-editor [(ngModel)]="text" name="text" placeholder="Text" ></quill-editor>
         <button class="w-100 btn btn-primary mt-2" type="submit">Create</button>

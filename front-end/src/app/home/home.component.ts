@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 
@@ -10,25 +11,25 @@ import { AuthService } from '../auth.service';
 export class HomeComponent implements OnInit {
 
 
+
   posts: any = [];
   category: any
+  loading: boolean = false;
 
 
-  constructor(
+constructor(
     private authServise: AuthService,
 
   ) { }
 
+ngOnInit() {
 
+    this.loading = true;
+    console.log('wait');
 
-  ngOnInit(): void {
+    this.authServise.getAllPost().subscribe( (posts ) => this.posts = posts,
 
-
-
-    this.authServise.getAllPost().subscribe( (posts ) =>
-      this.posts = posts,
-
-      (err: Error) => {},
+       (err: Error) => {},
 
       () => {
         for (let i = 0; i < this.posts.length; i++) {
@@ -36,13 +37,26 @@ export class HomeComponent implements OnInit {
           this.posts[i].text = this.posts[i].text.substring(0, 200)
 
         }
-      }
+        this.loading = false;
+
+        console.log('complete');
+
+
+      },
+
+
     )
+
+
   }
+
+
 
   setCategory(category: any) {
     this.category = category
+  };
 
-  }
+
+
 
 }
