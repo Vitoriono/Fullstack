@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Route, Router  } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Params, Router  } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { AuthService } from '../auth.service';
 
@@ -8,7 +8,9 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class PostComponent implements OnInit {
 
@@ -16,6 +18,12 @@ export class PostComponent implements OnInit {
   login: any;
   loading: boolean = false;
   params: any;
+
+
+  editorStyle = {
+
+    'box-shadow': '0.7px 0.5px 10px  rgb(17, 26, 26)'
+  }
 
   constructor(
     private authServise: AuthService,
@@ -35,13 +43,7 @@ export class PostComponent implements OnInit {
       .pipe(switchMap( (params : Params) => {
         return this.authServise.getPostById(params['id'])
       } ));
-
-
-
-
-
-
-  }
+    }
 
   deletePost(id: any) {
     this.authServise.deletePost(id).subscribe(data => {

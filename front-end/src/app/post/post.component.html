@@ -17,10 +17,14 @@
       <strong class="mb-2 text-primary" >{{$any(post).category}}</strong>
       <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Author: @{{$any(post).author}}, Date: {{$any(post).date | date: "short" }}</font></font></small>
     </div>
-    <quill-view  [content]="$any(post).photo" ></quill-view>
-    <div class="mt-2 mb-3 fontform ">
-      <quill-view [content]="$any(post).text" class="formsst"></quill-view>
+    <div >
+    <quill-view class="photos"  [content]="$any(post).photo" ></quill-view>
+  </div>
+
+    <div class="mt-2 mb-3 ">
+      <quill-view  [content]="$any(post).text" class="formsst"></quill-view>
     </div>
+
   </div>
 </ng-container>
 

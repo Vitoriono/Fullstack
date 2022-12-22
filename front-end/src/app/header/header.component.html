@@ -14,9 +14,9 @@
       </ul>
 
       <form class="d-flex" role="search">
-        <a *ngIf="!authServise.isAuthenticated()" class=" right btn btn-outline-success"  [routerLink]="['/reg']" >Sign up</a>
-        <a *ngIf="!authServise.isAuthenticated()"  class=" right btn btn-outline-success"  [routerLink]="['/auth']" >Sign in</a>
-        <a *ngIf="authServise.isAuthenticated()"  class=" btn btn-outline-warning"  (click)="LogoutUser()" >Logout</a>
+        <a *ngIf="!authServise.isAuthenticated()" class=" butn right btn btn-outline-success"  [routerLink]="['/reg']" >Sign up</a>
+        <a *ngIf="!authServise.isAuthenticated()"  class=" butn right btn btn-outline-success"  [routerLink]="['/auth']" >Sign in</a>
+        <a *ngIf="authServise.isAuthenticated()"  class=" butn btn btn-outline-warning"  (click)="LogoutUser()" >Logout</a>
       </form>
     </div>
   </div>

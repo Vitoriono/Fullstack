@@ -19,6 +19,7 @@ import { SortingPipe } from './sorting.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
