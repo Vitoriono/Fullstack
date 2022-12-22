@@ -14,6 +14,7 @@ export class AuthService {
 
   token: any;
   user: any;
+  loading: boolean =false;
 
 
   constructor(
@@ -65,7 +66,7 @@ export class AuthService {
     }
 
     getPostById(id: any) {
-      return this.http.get(`https://pure-river-50317.herokuapp.com/post/${id}`).pipe(map((res: any)  => res) )
+      return (this.http.get(`https://pure-river-50317.herokuapp.com/post/${id}`).pipe(map((res: any)  => res) ))
     }
 
     deletePost(id: any) {

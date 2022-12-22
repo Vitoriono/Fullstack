@@ -1,16 +1,16 @@
 
 <div class="nav-scroller py-1 mb-2 ">
   <nav class="nav d-flex justify-content-between" >
-    <a class="p-2 font" (click)="setCategory('World')">World</a>
-    <a class="p-2 link-white" (click)="setCategory('Technology')">Technology</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Design')">Design</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Culture')">Culture</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Business')">Business</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Opinion')">Opinion</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Science')">Science</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Health')">Health</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Style')">Style</a>
-    <a class="p-2 link-secondary" (click)="setCategory('Travel')">Travel</a>
+    <a class="p-2 link-prop" (click)="setCategory('World')">World</a>
+    <a class="p-2 link-prop" (click)="setCategory('Technology')">Technology</a>
+    <a class="p-2 link-prop" (click)="setCategory('Design')">Design</a>
+    <a class="p-2 link-prop" (click)="setCategory('Culture')">Culture</a>
+    <a class="p-2 link-prop" (click)="setCategory('Business')">Business</a>
+    <a class="p-2 link-prop" (click)="setCategory('Opinion')">Opinion</a>
+    <a class="p-2 link-prop" (click)="setCategory('Science')">Science</a>
+    <a class="p-2 link-prop" (click)="setCategory('Health')">Health</a>
+    <a class="p-2 link-prop" (click)="setCategory('Style')">Style</a>
+    <a class="p-2 link-prop" (click)="setCategory('Travel')">Travel</a>
   </nav>
 </div>
 
@@ -32,7 +32,7 @@
   <ng-container *ngIf="!loading">
     <div class="common">
     <div *ngFor="let post of posts | sorting: category " class="col ">
-      <div class="card myshadow" >
+      <div class="card myshadow postes" >
 
           <quill-view [content]="$any(post).photo" ></quill-view>
 

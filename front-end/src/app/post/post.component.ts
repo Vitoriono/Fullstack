@@ -12,6 +12,8 @@ export class PostComponent implements OnInit {
 
   post$: any;
   login: any;
+  loading: boolean = false;
+  params: any;
 
   constructor(
     private authServise: AuthService,
@@ -20,14 +22,25 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = true;
+    console.log('wait');
+
     if(this.authServise.isAuthenticated()) {
       this.login = JSON.parse(localStorage.getItem('user') || '{}').login
     }
 
+    () => {
     this.post$ = this.router.params
       .pipe(switchMap( (params : Params) => {
         return this.authServise.getPostById(params['id'])
-      } ))
+      } ));
+      this.loading = false;
+        console.log('complete');
+    }
+
+
+
+
   }
 
   deletePost(id: any) {

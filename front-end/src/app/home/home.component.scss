@@ -46,7 +46,6 @@ nav {
 .common {
   display: block;
   margin-top: 1rem;
-  margin-left: 0.4rem;
   padding: 0px;
   margin-bottom: 2rem;
 
@@ -66,9 +65,7 @@ nav {
 
 }
 
-.font {
-  color: white;
-}
+
 
 .contain {
   padding: 0px;
@@ -76,7 +73,23 @@ nav {
 }
 
 .myshadow {
+
   box-shadow: 2px 1px 10px  rgb(17, 26, 26);
+  // background-color: rgb(227, 218, 218);
+}
+
+.link-prop {
+  color: rgb(227, 218, 218);
+}
+
+.link-prop:hover {
+
+  color: rgb(205, 193, 193);
+
+}
+
+.postes {
+  opacity: 0.9;
 }
 
 
