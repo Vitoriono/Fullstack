@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class PostComponent implements OnInit {
