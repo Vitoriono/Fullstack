@@ -1,38 +1,46 @@
 
-<div class="nav-scroller py-1 mb-2 ">
-  <nav class="nav d-flex justify-content-between" >
-    <a class="p-2 link-prop" (click)="setCategory('World')">World</a>
-    <a class="p-2 link-prop" (click)="setCategory('Technology')">Technology</a>
-    <a class="p-2 link-prop" (click)="setCategory('Design')">Design</a>
-    <a class="p-2 link-prop" (click)="setCategory('Culture')">Culture</a>
-    <a class="p-2 link-prop" (click)="setCategory('Business')">Business</a>
-    <a class="p-2 link-prop" (click)="setCategory('Opinion')">Opinion</a>
-    <a class="p-2 link-prop" (click)="setCategory('Science')">Science</a>
-    <a class="p-2 link-prop" (click)="setCategory('Health')">Health</a>
-    <a class="p-2 link-prop" (click)="setCategory('Style')">Style</a>
-    <a class="p-2 link-prop" (click)="setCategory('Travel')">Travel</a>
-  </nav>
-</div>
 
-<div class="row d-flex">
-  <div class="figure contain">
-    <img class="photo " src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="">
-    <div class="text">
-      <h1 class="display-4 fst-italic">Welcome to my first blog!</h1>
-      <p class="lead my-3">In this blog, you can post photos and articles from various categories: world, technology, design, culture, health, style, travel etc.</p>
-      <p class="lead mb-0"><a  class="text-white fw-bold" [routerLink]="['/reg']">Registration page...</a></p>
-    </div>
-  </div>
+
 
 
   <ng-container *ngIf="loading">
-    <div class="loader">Loader... </div>
+    <div class="patch">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="!loading">
+
+    <div class="nav-scroller py-1 mb-2 ">
+      <nav class="nav d-flex justify-content-between" >
+        <a class="p-2 link-prop" (click)="setCategory('World')">World</a>
+        <a class="p-2 link-prop" (click)="setCategory('Technology')">Technology</a>
+        <a class="p-2 link-prop" (click)="setCategory('Design')">Design</a>
+        <a class="p-2 link-prop" (click)="setCategory('Culture')">Culture</a>
+        <a class="p-2 link-prop" (click)="setCategory('Business')">Business</a>
+        <a class="p-2 link-prop" (click)="setCategory('Opinion')">Opinion</a>
+        <a class="p-2 link-prop" (click)="setCategory('Science')">Science</a>
+        <a class="p-2 link-prop" (click)="setCategory('Health')">Health</a>
+        <a class="p-2 link-prop" (click)="setCategory('Style')">Style</a>
+        <a class="p-2 link-prop" (click)="setCategory('Travel')">Travel</a>
+      </nav>
+    </div>
+
+    <div class="row d-flex">
+      <div class="figure contain">
+        <img class="photo " src="https://funart.pro/uploads/posts/2022-08/1660724922_16-funart-pro-p-skandinavskii-poluostrov-priroda-krasivo-f-17.jpg" alt="">
+        <div class="text">
+          <h1 class="display-4 fst-italic">Welcome to my first blog!</h1>
+          <p class="lead my-3">In this blog, you can post photos and articles from various categories: world, technology, design, culture, health, style, travel etc.</p>
+          <p class="lead mb-0"><a  class="text-white fw-bold" [routerLink]="['/reg']">Registration page...</a></p>
+        </div>
+      </div>
+
     <div class="common">
     <div *ngFor="let post of posts | sorting: category " class="col ">
-      <div class="card myshadow postes" >
+      <div class="card myshadow posters" >
 
           <quill-view [content]="$any(post).photo" ></quill-view>
 
@@ -49,9 +57,12 @@
       </div>
     </div>
 </div>
+</div>
   </ng-container>
 
 
 
-</div>
+
+
+
 
