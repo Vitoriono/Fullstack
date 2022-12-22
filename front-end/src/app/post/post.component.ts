@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Route, Router  } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { AuthService } from '../auth.service';
 
+
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -22,21 +24,19 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loading = true;
-    console.log('wait');
+
 
     if(this.authServise.isAuthenticated()) {
       this.login = JSON.parse(localStorage.getItem('user') || '{}').login
     }
 
-    () => {
+
     this.post$ = this.router.params
       .pipe(switchMap( (params : Params) => {
         return this.authServise.getPostById(params['id'])
       } ));
-      this.loading = false;
-        console.log('complete');
-    }
+
+
 
 
 
