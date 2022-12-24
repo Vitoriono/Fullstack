@@ -3,21 +3,7 @@
   margin-top: 80px;
   max-width: 900px;
   padding: 0px;
-}
 
-
-.fontform {
-  // background: white;
-  // opacity: 0.2;
-  color: rgb(31, 30, 30);
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-
-.photos{
-  border-radius: 15px;
-  background-color: red;
 }
 
 .size{
@@ -25,13 +11,38 @@
 }
 
 .mytext{
-  background-color: rgb(14, 54, 14);
-  color: white;
-  max-width: 95%;
-  margin: auto;
-  border-radius: 5px;
-  opacity: 0.8;
+  opacity: 0.95;
+  font-weight: 100;
+  color: rgb(228, 220, 220);
+  background-color: rgb(14, 54, 14, 0.7);
+  max-width: 900px;
+  margin:5px 0 20px 0;
 }
+
+.patch {
+  position: fixed;
+	top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(136, 136, 204, 0.5);
+  z-index: 4444;
+}
+
+.spinner {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  width: 40px;
+  height: 40px;
+  margin-right: -50%;
+}
+
+// .inner{
+//   // background-color: red;
+//   box-shadow: inset 2em -1em 2em black;
+// }
 
 
 

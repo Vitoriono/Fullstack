@@ -39,8 +39,6 @@ ngOnInit() {
         }
         this.loading = false;
         console.log('complete');
-
-
       },
 
 

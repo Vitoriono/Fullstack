@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params, Router  } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 
@@ -9,8 +9,6 @@ import { AuthService } from '../auth.service';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  // encapsulation: ViewEncapsulation.None
-
 })
 export class PostComponent implements OnInit {
 
@@ -19,12 +17,6 @@ export class PostComponent implements OnInit {
   loading: boolean = false;
   params: any;
 
-
-  editorStyle = {
-
-    'box-shadow': '0.7px 0.5px 10px  rgb(17, 26, 26)'
-  }
-
   constructor(
     private authServise: AuthService,
     private router: ActivatedRoute,
@@ -32,18 +24,25 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.loading = true;
+    console.log('expect')
 
     if(this.authServise.isAuthenticated()) {
       this.login = JSON.parse(localStorage.getItem('user') || '{}').login
     }
 
+    this.post$ = this.router.params.pipe(switchMap( (params : Params) => {
+      return this.authServise.getPostById(params['id'])
+    }, ))
 
-    this.post$ = this.router.params
-      .pipe(switchMap( (params : Params) => {
-        return this.authServise.getPostById(params['id'])
-      } ));
-    }
+    this.post$.subscribe(
+      () => {
+
+        this.loading = false;
+        console.log('completed')
+      }
+    );
+}
 
   deletePost(id: any) {
     this.authServise.deletePost(id).subscribe(data => {
@@ -55,5 +54,4 @@ export class PostComponent implements OnInit {
       }
     })
   }
-
 }
